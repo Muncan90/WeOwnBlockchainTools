@@ -111,7 +111,7 @@ ___
 tx.add_transfer_chx_action(beneficiary1_wallet_addr, chx_distribution)
 ```
 
-The action to distribute CHX to the wallet address of the first beneficiary, add or remove these variables based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 21+
+The action to distribute CHX to the wallet address of the first beneficiary, add or remove these lines based on your requirements, **REMEMBER** to ensure that they align with both variables defined in Line 51 & 21+
 
 ___
 
