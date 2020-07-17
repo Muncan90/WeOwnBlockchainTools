@@ -71,7 +71,7 @@ ___
 ```
 validator_wallet_addr = 'CHa52gXkAcfZ8RNnuTszdE3XvxaNhtrdFrM'
 ```
-Change this to suit your own requirements, this is the validator wallet from which you distribute CHX on schedule
+Change this to suit your own validator requirements, this is the validator wallet from which you will distribute CHX from according to a schedule of your choice
 
 ___
 
@@ -91,7 +91,7 @@ ___
 beneficiary1_wallet_addr = 'CHfree5ZSwDwKRh2btFG4UPGSwtSZxyqPeQ'
 ```
 
-The wallet address of the first beneficiary, add or remove these variables based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+
+The wallet address of the first beneficiary, add or remove these variables based on your beneficiary requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+
 
 ___
 
@@ -111,7 +111,17 @@ ___
 tx.add_transfer_chx_action(beneficiary1_wallet_addr, chx_distribution)
 ```
 
-The action to distribute CHX to the wallet address of the first beneficiary, add or remove these lines based on your requirements, **REMEMBER** to ensure that they align with both variables defined in Line 51 & 21+
+The action to distribute CHX to the wallet address of the first beneficiary, add or remove these lines based on your beneficiary requirements, **REMEMBER** to ensure that they align with both variables defined in Line 51 & 21+
+
+___
+
+**Line 96**
+
+```
+cg_chx_local_rate_response = http.get("https://api.coingecko.com/api/v3/simple/price?ids=chainium&vs_currencies=gbp")
+```
+
+Gets the current rate that should be used to calculate the local currency value of the CHX Tx from CoinGecko API, change `vs_currencies=gbp` to suit your local currency requirements
 
 ___
 
@@ -121,7 +131,7 @@ ___
 cg_chx_local_rate = cg_chx_local_rate_response_json["chainium"]["gbp"]
 ```
 
-Defining the local rate that should be used to calculate the local currency value of the CHX Tx, change `gbp` to suit your requirements but never change `chainium`
+Defining the local rate that should be used to calculate the local currency value of the CHX Tx, change `gbp` to suit your local currency requirements but never change `chainium`
 
 ___
 
@@ -151,7 +161,7 @@ ___
 my_message0 = "_⏰ {}_".format(dtn_ftime) + "\n\n" + "*VALIDATOR NAME SENT A NEW REWARD DISTRIBUTION Tx*\n\n"
 ```
 
-Change these lines to suit your own requirements, remove or add `my_messagen` variables as required and remember to update the `my_message_final` variable to capture all `my_messagen` variables when finished
+Change these lines to suit your own message requirements, remove or add `my_messagen` variables as required and remember to update the `my_message_final` variable to capture all `my_messagen` variables when finished
 
 ___
 
