@@ -185,11 +185,11 @@ To add a cron job run `$ crontab -u <user> -e` then paste in the crontab line pr
 
 The example screenshot below shows 6 cron jobs configured to execute between 00:01-00:06 on the first day of the week (Weekly)
 
-![crontab_sample](img\crontab_sample.png)
+![crontab_sample](img/crontab_sample.png)
 
 ## Telegram Message Sample
 
-![TG_message_sample](img\TG_message_sample.png)
+![TG_message_sample](img/TG_message_sample.png)
 
 ## To Do & Improvements
 
