@@ -91,7 +91,7 @@ ___
 beneficiary1_wallet_addr = 'CHfree5ZSwDwKRh2btFG4UPGSwtSZxyqPeQ'
 ```
 
-The wallet address of the first beneficiary, decrease or increase these entries based on your requirements, REMEMBER to ensure that this aligns with both Line 51 & 62+ !!!
+The wallet address of the first beneficiary, decrease or increase these entries based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+ !!!
 
 ___
 
@@ -101,7 +101,7 @@ ___
 chx_distribution = round(available_balance/2, 7)
 ```
 
-The amount in CHX to distribute across beneficiary wallets, in this case we are dividing the validator wallet's available balance by 2 then rounding that figure to 7 decimal points to ensure the Tx is not rejected. Change `2` to suit your needs but never change `7`
+The amount in CHX to distribute across beneficiary wallets, in this case we are dividing the validator wallet's available balance by `2` then rounding that figure to `7` decimal points to ensure the Tx is not rejected. Change `2` to suit your needs but never change `7`
 
 ___
 
