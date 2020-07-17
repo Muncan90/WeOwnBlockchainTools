@@ -48,7 +48,7 @@ tx_nonce = wallet_info_response_json["nonce"]+1 # +1 FOR NEW Tx SUBMISSION
 available_balance = wallet_info_response_json["balance"]["available"]-1 # -1 CHX FOR Tx FEES
 
 # DIVIDE available_balance VARIABLE BETWEEN n AMOUNT OF BENEFICIARIES
-chx_distribution = round(available_balance/2, 7) # DIVIDE BY 2, ROUND TO 7 . TO AVOID TX REJECTION
+chx_distribution = round(available_balance/2, 7) # DIVIDE BY 2, ALWAYS ROUND TO 7 AVOID Tx REJECTION
 
 ####################################################################################################
 ## STAGE TWO - IMPORT VALIDATOR WALLET, COMPOSE, SIGN & PREPARE Tx FOR SUBMISSION
@@ -121,7 +121,7 @@ def telegram_bot_send_msg(bot_message):
    return response.json()
 
 # TELEGRAM MESSAGE - COMPOSE MESSAGE WITH Tx DETAILS
-my_message0 = "_⏰ {}_".format(dtn_ftime) + "\n\n" + "*VAL1 (PRIVATE) SENT A NEW REWARD DISTRIBUTION Tx*\n\n"
+my_message0 = "_⏰ {}_".format(dtn_ftime) + "\n\n" + "*VALIDATOR NAME SENT A NEW REWARD DISTRIBUTION Tx*\n\n"
 my_message1 = "*Total Value of Tx*\n"
 my_message2 = "CHX ""{}".format(available_balance) + " 🌟\n£{}".format(local_available_balance) + " 💷\n\n"
 my_message3 = "*Value of Each TransferChx Action\n*"
