@@ -12,7 +12,7 @@ It uses:
 * OwnBlockchainSdkPython (https://github.com/OwnMarket/OwnBlockchainSdkPython)
 * Python Requests Library to handle WeOwn node api endpoint http requests (https://requests.readthedocs.io/en/master/)
 * CoinGecko API to provide a conversion from CHX to a local currency (https://www.coingecko.com/api/documentations/v3)
-* Telegram Bot API to send messages with details of the automated transaction to a specified ChatID which requires an existing or newly created bot (https://core.telegram.org/bots/api) (https://core.telegram.org/bots#creating-a-new-bot)
+* Telegram Bot API to send messages with details of the automated transaction to a specified chatID which requires an existing or newly created bot (https://core.telegram.org/bots/api) (https://core.telegram.org/bots#creating-a-new-bot)
 
 ## Stages of the Script
 
@@ -28,7 +28,7 @@ There are six stages:
 
 4. Prepare telegram message variables: get current date & time, get local currency rate, calculate conversion of CHX amount to local currency value
 
-5. Define a telegram message function, send a message to the specified chatid with the Tx details including a link to the official WeOwn Blockchain Explorer
+5. Define a telegram message function, send a message to the specified chatID with the Tx details including a link to the official WeOwn Blockchain Explorer
 
 ## Script Installation, Configuration & Cloning
 
@@ -46,7 +46,7 @@ $ cd WeOwnBlockchainTools/WeOwnValidatorPayoutTool/
 $ pip3 install -r requirements.txt
 ```
 
-### Configuration & Cloning
+### Configuration
 
 Create a dedicated directory e.g. `/home/user/autotx` for your tailored script(s) which are configured in the next step
 
@@ -141,7 +141,7 @@ ___
 bot_chatID = 'TG_CHAT_ID'
 ```
 
-Provide your own telegram ChatID that the bot will use to send messages
+Provide your own telegram chatID that the bot will use to send messages
 
 ___
 
@@ -155,6 +155,46 @@ Change these lines to suit your own requirements, decrease or increase these ent
 
 ___
 
-Save a copy of the script with a name that makes sense to you for future management e.g. `val1_MASTER.py` in the dedicated directory you created earlier e.g. `/home/user/autotx`
+Save a copy of the script with a name that makes sense to you for future management e.g. `auto_tx_MASTER_TEMPLATE.py` in the dedicated directory you created earlier e.g. `/home/user/autotx` this can be used to create clone scripts for as many validator wallets as you wish to automate transactions for.
 
-The script is now ready to be cloned as a template for any other validators that you wish to automate transactions for.
+### Cloning
+
+Open the script template
+
+```
+$ nano auto_tx_MASTER_TEMPLATE.py
+```
+
+Amend the required variables to suit the required validator wallet, save a copy with a naming convention that aligns with your validator deployment e.g. `val1.py` in the dedicated directory you created earlier e.g. `/home/user/autotx`
+
+Repeat this step until all required scripts have been created and saved in the dedicated directory
+
+### Testing
+
+Manually test the script(s) to ensure functionality: `python3 ./val1.py`
+
+## Adding Cron Tasks
+
+When you are satisfied the scripts are functioning as expected, you can use crontab to automate the python script execution on a schedule of your choice. This provides an end-to-end private CHX validator reward distribution service.
+
+Crontab Generator provides an easy-to-configure interface which outputs crontab lines (https://crontab-generator.org/)
+
+The "Command to Execute" is `/usr/bin/python3 /home/user/autotx/val1.py` 
+
+To add a cron job run `$ crontab -u <user> -e` then paste in the crontab line provided by Crontab Generator
+
+The example screenshot below shows 6 cron jobs configured to execute between 00:01-00:06 on the first day of the week (Weekly)
+
+![crontab_sample](crontab_sample.png)
+
+## Telegram Message Sample
+
+![TG_message_sample](TG_message_sample.png)
+
+## To Do & Improvements
+
+* Implement proper http response error handling
+
+___
+
+Support of development by means of TransferChx action is always appreciated, tip-jar: `CHPwxUTVsdHJHv6zQuyU6ZZYis9Sp1u2x6P` 
