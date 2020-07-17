@@ -1,5 +1,8 @@
+# Base requirements
 own-blockchain-sdk==1.0.1
 requests>=2.18.4
+
+# Fix additional dependencies within own-blockchain-sdk
 base58>=2.0.1
 coincurve>=13.0.0
 ecdsa>=0.15
