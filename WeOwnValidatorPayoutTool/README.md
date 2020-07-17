@@ -48,7 +48,7 @@ $ pip3 install -r requirements.txt
 
 ### Configuration
 
-Create a dedicated directory e.g. `/home/user/autotx` for your tailored script(s) which are configured in the next step
+Create a dedicated directory e.g. `$ mkdir /home/<user>/autotx` replacing `<user>` as required. This is the directory used to store your specifically tailored script(s) which are configured in the next steps..
 
 ```
 $ nano WeOwnValidatorPayoutTool.py
@@ -91,7 +91,7 @@ ___
 beneficiary1_wallet_addr = 'CHfree5ZSwDwKRh2btFG4UPGSwtSZxyqPeQ'
 ```
 
-The wallet address of the first beneficiary, decrease or increase these entries based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+ !!!
+The wallet address of the first beneficiary, add or remove these variables based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+ !!!
 
 ___
 
@@ -101,7 +101,7 @@ ___
 chx_distribution = round(available_balance/2, 7)
 ```
 
-The amount in CHX to distribute across beneficiary wallets, in this case we are dividing the validator wallet's available balance by `2` then rounding that figure to `7` decimal points to ensure the Tx is not rejected. Change `2` to suit your needs but never change `7`
+The amount in CHX to distribute to each beneficiary wallet, in this case we are dividing the validator wallet's available balance by `2` then rounding that figure to `7` decimal points to ensure the Tx is not rejected. Change `2` to suit your needs but never change `7`
 
 ___
 
@@ -111,7 +111,7 @@ ___
 tx.add_transfer_chx_action(beneficiary1_wallet_addr, chx_distribution)
 ```
 
-The action to distribute CHX to the wallet address of the first beneficiary, decrease or increase these entries based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 21+
+The action to distribute CHX to the wallet address of the first beneficiary, add or remove these variables based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 21+
 
 ___
 
@@ -141,7 +141,7 @@ ___
 bot_chatID = 'TG_CHAT_ID'
 ```
 
-Provide your own telegram chatID that the bot will use to send messages
+Provide your own telegram chatID that the bot will use to send messages e.g. `-3948506920`
 
 ___
 
@@ -151,11 +151,11 @@ ___
 my_message0 = "_⏰ {}_".format(dtn_ftime) + "\n\n" + "*VALIDATOR NAME SENT A NEW REWARD DISTRIBUTION Tx*\n\n"
 ```
 
-Change these lines to suit your own requirements, decrease or increase these entries based on your requirements and remember to update the `my_message_final` variable when finished
+Change these lines to suit your own requirements, remove or add `my_messagen` variables as required and remember to update the `my_message_final` variable to capture all `my_messagen` variables when finished
 
 ___
 
-Save a copy of the script with a name that makes sense to you for future management e.g. `auto_tx_MASTER_TEMPLATE.py` in the dedicated directory you created earlier e.g. `/home/user/autotx` this can be used to create clone scripts for as many validator wallets as you wish to automate transactions for.
+Save a copy of the script with a name that makes sense to you for future management e.g. `auto_tx_MASTER_TEMPLATE.py` in the dedicated directory you created earlier e.g. `/home/<user>/autotx` this can be used to create clone scripts for as many validator wallets as you wish to automate transactions for.
 
 ### Cloning
 
@@ -165,13 +165,23 @@ Open the script template
 $ nano auto_tx_MASTER_TEMPLATE.py
 ```
 
-Amend the required variables to suit the required validator wallet, save a copy with a naming convention that aligns with your validator deployment e.g. `val1.py` in the dedicated directory you created earlier e.g. `/home/user/autotx`
+Amend the required variables to suit the required validator wallet, save a copy with a naming convention that aligns with your validator deployment e.g. `val1.py` in the dedicated directory you created earlier e.g. `/home/<user>/autotx`
 
 Repeat this step until all required scripts have been created and saved in the dedicated directory
 
 ### Testing
 
-Manually test the script(s) to ensure functionality: `python3 ./val1.py`
+Manually test the script(s) to ensure functionality:
+
+```
+$ cd /home/<user>/autotx
+
+$ python3 val1.py
+$ python3 val2.py
+$ ...
+
+```
+
 
 ## Adding Cron Tasks
 
@@ -179,11 +189,11 @@ When you are satisfied the scripts are functioning as expected, you can use cron
 
 Crontab Generator provides an easy-to-configure interface which outputs crontab lines (https://crontab-generator.org/)
 
-The "Command to Execute" is `/usr/bin/python3 /home/user/autotx/val1.py` 
+The "Command to Execute" is `/usr/bin/python3 /home/<user>/autotx/val1.py` replacing `<user>` as required.
 
-To add a cron job run `$ crontab -u <user> -e` then paste in the crontab line provided by Crontab Generator
+To add a cron job run `$ crontab -u <user> -e` replacing `<user>` as required then paste in each crontab line provided by Crontab Generator
 
-The example screenshot below shows 6 cron jobs configured to execute between 00:01-00:06 on the first day of the week (Weekly)
+The example screen shot below shows 6 cron jobs configured to execute between 00:01-00:06 on the first day of the week (Weekly)
 
 ![crontab_sample](img/crontab_sample.png)
 
