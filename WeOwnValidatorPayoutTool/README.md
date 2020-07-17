@@ -4,7 +4,7 @@
 
 A Python script to automate TransferChx actions on the WeOwn Public Blockchain.
 
-The primary use case for the script is to automate the composure, submission and notification of transactions which contain TransferChx actions sent from a validator wallet, to one or more beneficiary wallets.
+The primary use case for the script is to automate the composure, submission and notification of transactions which contain TransferChx actions sent from a validator wallet to one or more beneficiary wallets.
 
 It can be combined with crontab or any other scheduling tools capable of executing python code to provide an end-to-end private CHX validator reward distribution service.
 
@@ -91,7 +91,7 @@ ___
 beneficiary1_wallet_addr = 'CHfree5ZSwDwKRh2btFG4UPGSwtSZxyqPeQ'
 ```
 
-The wallet address of the first beneficiary, add or remove these variables based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+ !!!
+The wallet address of the first beneficiary, add or remove these variables based on your requirements, **REMEMBER** to ensure that this aligns with both Line 51 & 62+
 
 ___
 
@@ -207,4 +207,4 @@ The example screen shot below shows 6 cron jobs configured to execute between 00
 
 ___
 
-Support of development by means of TransferChx action is always appreciated, tip-jar: `CHPwxUTVsdHJHv6zQuyU6ZZYis9Sp1u2x6P` 
+Support of development by means of TransferChx action is always appreciated | tip-jar: `CHPwxUTVsdHJHv6zQuyU6ZZYis9Sp1u2x6P`
