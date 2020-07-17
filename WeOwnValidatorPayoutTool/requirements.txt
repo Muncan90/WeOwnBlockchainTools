@@ -1,0 +1,2 @@
+own-blockchain-sdk==1.0.1
+requests==2.18.4
